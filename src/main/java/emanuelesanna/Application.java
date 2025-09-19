@@ -7,6 +7,7 @@ import emanuelesanna.entities.Videogioco;
 import emanuelesanna.enums.Genere;
 import emanuelesanna.enums.Piattaforma;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -69,14 +70,50 @@ public class Application {
                     System.out.println("GiocoDaTavolo");
                     String sceltaElemento = scan1.nextLine();
                     if (sceltaElemento.equals("Videogioco")) {
-
+                        System.out.print("Titolo: ");
+                        String titolo = scan1.nextLine();
+                        System.out.print("Anno di pubblicazione: ");
+                        int anno = Integer.parseInt(scan1.nextLine());
+                        System.out.println("Prezzo: ");
+                        double prezzo = Double.parseDouble(scan1.nextLine());
+                        System.out.print("Piattaforma (PC, XBOX, PLAYSTATION, NINTENDO): ");
+                        Piattaforma piattaformaInput = Piattaforma.valueOf(scan1.nextLine().toUpperCase());
+                        System.out.print("Durata di gioco (ore): ");
+                        int durata = Integer.parseInt(scan1.nextLine());
+                        System.out.print("Genere (RPG, RTS, FPS, AVVENTURA, SPORT): ");
+                        Genere genereInput = Genere.valueOf(scan1.nextLine().toUpperCase());
+                        Videogioco videogioco = new Videogioco(titolo, anno, prezzo, piattaformaInput, durata, genereInput);
+                        coll1.aggiungiGioco(videogioco);
+                        System.out.println(coll1);
+                        break;
                     } else if (sceltaElemento.equals("GiocoDaTavolo")) {
+                        System.out.print("Titolo: ");
+                        String titolo = scan1.nextLine();
 
+                        System.out.print("Anno di pubblicazione: ");
+                        int anno = Integer.parseInt(scan1.nextLine());
+
+                        System.out.print("Prezzo: ");
+                        double prezzo = Double.parseDouble(scan1.nextLine());
+
+                        System.out.print("Numero di giocatori: ");
+                        int numGiocatori = Integer.parseInt(scan1.nextLine());
+
+                        System.out.print("Durata media della partita (minuti): ");
+                        int durata = Integer.parseInt(scan1.nextLine());
+
+                        GiocoDaTavolo giocoDaTavolo = new GiocoDaTavolo(titolo, anno, prezzo, numGiocatori, durata);
+                        coll1.aggiungiGioco(giocoDaTavolo);
+
+                        System.out.println("Aggiunto con successo: " + giocoDaTavolo);
+                        System.out.println(coll1);
+                        break;
                     } else {
                         System.out.println("Scelta non valida!");
+                        break;
                     }
 
-//            case 2:
+                case 2:
                     System.out.println("Digita un ID");
                     try {
                         int scelta2 = Integer.parseInt(scan1.nextLine());
@@ -92,7 +129,18 @@ public class Application {
                         System.err.println("Errore: devi inserire un numero intero valido!");
                     }
                     break;
-//            case 3:
+
+                case 3:
+
+                    System.out.println("Digita un prezzo");
+
+                    double prezzo = Double.parseDouble(scan1.nextLine());
+
+                    List<Gioco> risultatoRicercaPerPrezzo = coll1.cercaPerPrezzo(prezzo);
+
+                    System.out.println(risultatoRicercaPerPrezzo);
+
+                    break;
 //            case 4:
 //            case 5:
 //            case 6:

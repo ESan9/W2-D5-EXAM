@@ -1,6 +1,7 @@
 package emanuelesanna.entities;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class CollezioneDiGiochi {
@@ -28,6 +29,21 @@ public class CollezioneDiGiochi {
                 .orElse(null);
     }
 
+    public List<Gioco> cercaPerPrezzo(double prezzo) {
+        return giochi.stream()
+                .filter(gioco -> gioco.getPrezzoGioco() <= prezzo)
+                .sorted(Comparator.comparing(Gioco::getPrezzoGioco)
+                        .reversed())
+                .toList();
+    }
+
+    @Override
+
+    public String toString() {
+        return "CollezioneDiGiochi{" +
+                "giochi=" + giochi +
+                '}';
+    }
 }
 
 

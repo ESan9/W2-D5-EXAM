@@ -64,6 +64,17 @@ public class Application {
                     System.out.println("Programma terminato");
                     break;
                 case 1:
+                    System.out.println("Che elemento vuoi aggiungere?");
+                    System.out.println("Videogioco");
+                    System.out.println("GiocoDaTavolo");
+                    String sceltaElemento = scan1.nextLine();
+                    if (sceltaElemento.equals("Videogioco")) {
+
+                    } else if (sceltaElemento.equals("GiocoDaTavolo")) {
+
+                    } else {
+                        System.out.println("Scelta non valida!");
+                    }
 
 //            case 2:
                     System.out.println("Digita un ID");

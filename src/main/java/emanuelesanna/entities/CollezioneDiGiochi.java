@@ -11,7 +11,14 @@ public class CollezioneDiGiochi {
     }
 
     public void aggiungiGioco(Gioco g) {
-        giochi.add(g);
+        boolean esisteGioco = giochi.stream()
+                .anyMatch(gioco -> gioco.getIdGioco() == g.getIdGioco());
+        if (esisteGioco) {
+            System.err.println("Errore: esiste già un gioco con ID " + g.getIdGioco());
+        } else {
+            giochi.add(g);
+            System.out.println("Aggiunto con successo: " + g);
+        }
     }
 
     public Gioco cercaPerId(int id) {

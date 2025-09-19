@@ -10,21 +10,17 @@ public class CollezioneDiGiochi {
     }
 
     public void aggiungiGioco(Gioco g) {
-        boolean esisteGioco = giochi.stream()
-                .anyMatch(gioco -> gioco.getIdGioco() == g.getIdGioco());
-        if (esisteGioco) {
-            System.err.println("Errore: esiste già un gioco con ID " + g.getIdGioco());
-        } else {
-            giochi.add(g);
-            System.out.println("Aggiunto con successo: " + g);
-        }
+        Objects.requireNonNull(g, "Il gioco non può essere null");
+        boolean duplicato = giochi.stream().anyMatch(x -> x.getIdGioco() == g.getIdGioco());
+        if (duplicato) throw new IllegalArgumentException("Esiste già un gioco con ID " + g.getIdGioco());
+        giochi.add(g);
     }
 
-    public Gioco cercaPerId(int id) {
+    public Optional<Gioco> cercaPerId(int id) {
+        if (id <= 0) throw new IllegalArgumentException("L'ID deve essere positivo");
         return giochi.stream()
-                .filter(gioco -> gioco.getIdGioco() == id)
-                .findFirst()
-                .orElse(null);
+                .filter(g -> g.getIdGioco() == id)
+                .findFirst();
     }
 
     public List<Gioco> cercaPerPrezzo(double prezzo) {
@@ -86,6 +82,15 @@ public class CollezioneDiGiochi {
                 .max(Comparator.comparingDouble(Gioco::getPrezzoGioco))
                 .toString();
     }
+
+//    public Optional<Gioco> aggiornaElementoPerId(int id) {
+//        if (id <= 0) throw new IllegalArgumentException("L'ID deve essere positivo");
+//        Optional<Gioco> giocoOptional = giochi.stream()
+//                .filter(gioco -> gioco.getIdGioco() == id)
+//                .findFirst();
+//        Mi sono lasciato per ultimo questo, da scrivere è lunghissimo e non ho molto tempo
+//
+//    }
 
     @Override
 

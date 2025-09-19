@@ -27,6 +27,10 @@ public class GiocoDaTavolo extends Gioco {
         return durataMediaPartita;
     }
 
+    public void setDurataMediaPartita(int durataMediaPartita) {
+        this.durataMediaPartita = durataMediaPartita;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "GiocoDaTavolo{" +

@@ -14,6 +14,10 @@ public class Gioco {
         this.prezzoGioco = prezzoGioco;
     }
 
+    public static void setContatoreId(int contatoreId) {
+        Gioco.contatoreId = contatoreId;
+    }
+
     public int getIdGioco() {
         return idGioco;
     }
@@ -22,8 +26,16 @@ public class Gioco {
         return titoloGioco;
     }
 
+    public void setTitoloGioco(String titoloGioco) {
+        this.titoloGioco = titoloGioco;
+    }
+
     public int getAnnoDiPubblicazione() {
         return annoDiPubblicazione;
+    }
+
+    public void setAnnoDiPubblicazione(int annoDiPubblicazione) {
+        this.annoDiPubblicazione = annoDiPubblicazione;
     }
 
     public double getPrezzoGioco() {

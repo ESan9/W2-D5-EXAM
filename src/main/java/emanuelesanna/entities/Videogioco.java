@@ -19,12 +19,24 @@ public class Videogioco extends Gioco {
         return piattaformaDiGioco;
     }
 
+    public void setPiattaformaDiGioco(Piattaforma piattaformaDiGioco) {
+        this.piattaformaDiGioco = piattaformaDiGioco;
+    }
+
     public int getDurataDiGioco() {
         return durataDiGioco;
     }
 
+    public void setDurataDiGioco(int durataDiGioco) {
+        this.durataDiGioco = durataDiGioco;
+    }
+
     public Genere getGenereGioco() {
         return genereGioco;
+    }
+
+    public void setGenereGioco(Genere genereGioco) {
+        this.genereGioco = genereGioco;
     }
 
     @Override

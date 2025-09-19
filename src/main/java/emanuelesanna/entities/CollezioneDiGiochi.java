@@ -15,12 +15,12 @@ public class CollezioneDiGiochi {
     }
 
     public Gioco cercaPerId(int id) {
-        for (Gioco g : giochi) {
-            if (g.getIdGioco() == id) {
-                return g;
-            }
-        }
-        return null;
+        return giochi.stream()
+                .filter(gioco -> gioco.getIdGioco() == id)
+                .findFirst()
+                .orElse(null);
     }
 
 }
+
+

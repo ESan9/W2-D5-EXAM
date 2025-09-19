@@ -141,8 +141,30 @@ public class Application {
                     System.out.println(risultatoRicercaPerPrezzo);
 
                     break;
-//            case 4:
-//            case 5:
+
+                case 4:
+
+                    System.out.println("Digita il numero di giocatori");
+
+                    int numeroGiocatori = Integer.parseInt((scan1.nextLine()));
+
+                    List<Gioco> risultatoRicercaPerGiocatori = coll1.cercaPerGiocatori(numeroGiocatori);
+
+                    System.out.println(risultatoRicercaPerGiocatori);
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Scrivi il codice ID dell'elemento che vuoi rimuovere");
+
+                    int idElementoDaRimuovere = Integer.parseInt((scan1.nextLine()));
+
+                    coll1.eliminaElementoPerId(idElementoDaRimuovere);
+
+                    System.out.println(coll1);
+
+                    break;
 //            case 6:
 //            case 7:
             }

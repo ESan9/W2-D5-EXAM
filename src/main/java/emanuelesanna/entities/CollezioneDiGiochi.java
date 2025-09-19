@@ -3,6 +3,7 @@ package emanuelesanna.entities;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class CollezioneDiGiochi {
     private List<Gioco> giochi;
@@ -35,6 +36,31 @@ public class CollezioneDiGiochi {
                 .sorted(Comparator.comparing(Gioco::getPrezzoGioco)
                         .reversed())
                 .toList();
+    }
+
+    public List<Gioco> cercaPerGiocatori(int giocatori) {
+        return giochi.stream()
+                .filter(gioco -> gioco instanceof GiocoDaTavolo)
+//                .toList();
+//        System.out.println(cercaPerGiocatori);
+                .map(gioco -> (GiocoDaTavolo) gioco)
+                .filter(giocoDaTavolo -> giocoDaTavolo.getNumberoDiGiocatori() == giocatori)
+                .map(giocoDaTavolo -> (Gioco) giocoDaTavolo)
+                .toList();
+    }
+
+    public void eliminaElementoPerId(int id) {
+        Optional<Gioco> giocoOptional = giochi.stream()
+                .filter(gioco -> gioco.getIdGioco() == id)
+                .findFirst();
+        // Cosa voglio? Mmmmm un Optional perché può non esserci di Gioco dal quale estrarre il valore con get nel caso in cui sia presente
+        if (giocoOptional.isPresent()) {
+            Gioco gioco1 = giocoOptional.get();
+            giochi.remove(gioco1);
+        } else {
+            System.out.println("Non è presente un gioco con questo ID");
+        }
+
     }
 
     @Override

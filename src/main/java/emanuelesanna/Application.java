@@ -1,6 +1,7 @@
 package emanuelesanna;
 
 import emanuelesanna.entities.CollezioneDiGiochi;
+import emanuelesanna.entities.Gioco;
 import emanuelesanna.entities.GiocoDaTavolo;
 import emanuelesanna.entities.Videogioco;
 import emanuelesanna.enums.Genere;
@@ -44,17 +45,36 @@ public class Application {
         System.out.println("Premi 6 per aggiornare un elemento esistente dato l'ID");
         System.out.println("Premi 7 per stampare le statistiche della collezione");
 
-        int scelta1 = Integer.parseInt(scan1.nextLine());
-
-        switch (scelta1) {
-            case 1;
-            case 2;
-            case 3;
-            case 4;
-            case 5;
-            case 6;
-            case 7;
+        try {
+            int scelta1 = Integer.parseInt(scan1.nextLine());
+        } catch (NumberFormatException e) {
+            System.err.println("Scelta non valida, digita un numero da 1 a 7!");
         }
+
+//        switch (scelta1) {
+//            case 1:
+
+//            case 2:
+        System.out.println("Digita un ID");
+        try {
+            int scelta2 = Integer.parseInt(scan1.nextLine());
+            Gioco gioco1 = coll1.cercaPerId(scelta2);
+
+            if (gioco1 != null) {
+                System.out.println("Gioco trovato:");
+                System.out.println(gioco1);
+            } else {
+                System.err.println("Nessun gioco trovato con ID " + scelta2);
+            }
+        } catch (NumberFormatException e) {
+            System.err.println("Errore: devi inserire un numero intero valido!");
+        }
+//            case 3:
+//            case 4:
+//            case 5:
+//            case 6:
+//            case 7:
+//        }
     }
 
 

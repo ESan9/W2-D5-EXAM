@@ -1,9 +1,6 @@
 package emanuelesanna.entities;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class CollezioneDiGiochi {
     private List<Gioco> giochi;
@@ -61,6 +58,27 @@ public class CollezioneDiGiochi {
             System.out.println("Non è presente un gioco con questo ID");
         }
 
+    }
+
+    public DoubleSummaryStatistics sommarioDiStatistiche() {
+        DoubleSummaryStatistics statsGiochi = giochi.stream()
+                .mapToDouble(Gioco::getPrezzoGioco)
+                .summaryStatistics();
+        return statsGiochi;
+    }
+
+//    Purtroppo non ritorna il totale di videogiochi o giochi da tavolo ma almeno ho la media e volevo provarlo
+
+    public int numeroVideogiochi() {
+        return (int) giochi.stream()
+                .filter(gioco -> gioco instanceof Videogioco)
+                .count();
+    }
+
+    public int numeroGiochiDaTavolo() {
+        return (int) giochi.stream()
+                .filter(gioco -> gioco instanceof GiocoDaTavolo)
+                .count();
     }
 
     @Override

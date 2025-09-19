@@ -7,6 +7,7 @@ import emanuelesanna.entities.Videogioco;
 import emanuelesanna.enums.Genere;
 import emanuelesanna.enums.Piattaforma;
 
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Scanner;
 
@@ -165,8 +166,23 @@ public class Application {
                     System.out.println(coll1);
 
                     break;
-//            case 6:
-//            case 7:
+
+                case 6:
+
+                    System.out.println("Scrivi il codice ID dell'elemento che vuoi aggiornare");
+
+                    break;
+
+                case 7:
+
+                    DoubleSummaryStatistics stats = coll1.sommarioDiStatistiche();
+                    System.out.println(" - Numero giochi: " + stats.getCount());
+                    System.out.println(" - Prezzo massimo: " + stats.getMax());
+                    System.out.println(" - Prezzo medio: " + stats.getAverage());
+                    System.out.println(coll1.numeroVideogiochi());
+                    System.out.println(coll1.numeroGiochiDaTavolo());
+
+                    break;
             }
         }
     }

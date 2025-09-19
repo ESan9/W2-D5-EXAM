@@ -29,7 +29,7 @@ public class Videogioco extends Gioco {
 
     @Override
     public String toString() {
-        return "Videogioco{" +
+        return super.toString() + "Videogioco{" +
                 "piattaformaDiGioco=" + piattaformaDiGioco +
                 ", durataDiGioco=" + durataDiGioco +
                 ", genereGioco=" + genereGioco +

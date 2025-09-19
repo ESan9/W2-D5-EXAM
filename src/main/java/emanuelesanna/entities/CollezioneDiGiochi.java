@@ -81,6 +81,12 @@ public class CollezioneDiGiochi {
                 .count();
     }
 
+    public String giocoConPrezzoMax() {
+        return giochi.stream()
+                .max(Comparator.comparingDouble(Gioco::getPrezzoGioco))
+                .toString();
+    }
+
     @Override
 
     public String toString() {

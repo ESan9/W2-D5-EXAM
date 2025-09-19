@@ -181,6 +181,7 @@ public class Application {
                     System.out.println(" - Prezzo medio: " + stats.getAverage());
                     System.out.println(coll1.numeroVideogiochi());
                     System.out.println(coll1.numeroGiochiDaTavolo());
+                    System.out.println(coll1.giocoConPrezzoMax());
 
                     break;
             }

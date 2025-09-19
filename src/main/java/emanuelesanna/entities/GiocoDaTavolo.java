@@ -29,7 +29,7 @@ public class GiocoDaTavolo extends Gioco {
 
     @Override
     public String toString() {
-        return "GiocoDaTavolo{" +
+        return super.toString() + "GiocoDaTavolo{" +
                 "numberoDiGiocatori=" + numberoDiGiocatori +
                 ", durataMediaPartita=" + durataMediaPartita +
                 '}';
